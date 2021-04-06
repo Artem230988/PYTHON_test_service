@@ -23,7 +23,7 @@
 pip install requirements.txt
 python manage.py runserver
 ```
-Для создания суперпользователя необходимо войти в запущенный контйнер
+Для создания суперпользователя необходимо
 ```
 python manage.py createsuperuser
 ```
