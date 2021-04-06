@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>{{test.title}}</H2>
+    <p>{{ test.description }}</p>
+    <form class="myform" method="post" action="{% url 'create_statistics' pk=test.pk %}">
+        {% csrf_token %}
+        {% for question in test.questions.all %}
+            <p>{{ question.text }}</p>
+            {% for option in question.options.all %}
+                <input type="radio" name="{{ question.pk }}" value="{{ option.pk }}">
+                    {{ option.text }}
+                <br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Ответить</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Результаты теста:</h2>
+<h4>Вы правильно ответили на {{ correct_count }} вопросов, тест пройден на {{ correct_percent}}%</h4>
+<p>Вопросы, на которые вы ответили неверно:</p>
+{% for answer in answers %}
+    {% if not answer.correct %}
+        <p>{{ answer.question.text }}</p>
+        <p>Вы выбрали: {{ answer.option.text }}</p>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}

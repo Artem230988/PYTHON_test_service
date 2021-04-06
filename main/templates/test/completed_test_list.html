@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Завершенные тесты</h4><br>
+<div class="container">
+{% for test in tests %}
+<a href="{% url 'get_statistics' pk=test.pk %}">{{ test.title }}</a>
+    <br>
+{% endfor %}
+</div>
+{% endblock %}
